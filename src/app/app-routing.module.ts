@@ -11,7 +11,6 @@ import { BlogComponent } from './main/blog/blog.component';
 
 const routes: Routes = [
     { path: 'login-component', component: LoginComponent  },
-    {path:'home', component: HomeComponent},
     {path:'menu', component: ContextMenuComponent},
     {path:'blog', component: BlogComponent},
     {path:'about-me', component: AboutMeComponent},

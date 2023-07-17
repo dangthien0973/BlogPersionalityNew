@@ -29,6 +29,7 @@ import { DetailBlogComponent } from './main/blog/content-blog/detail-blog/detail
     AboutMeComponent,
     FooterComponent,
     DetailBlogComponent,
+    BlogComponent
 
     
   ],
