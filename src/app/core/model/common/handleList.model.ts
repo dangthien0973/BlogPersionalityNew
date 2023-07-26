@@ -6,5 +6,4 @@ export class HandleList<T> {
     isSuccess?:boolean;
     statusCode?:number;
     data: T[];
-    
   }
