@@ -1,6 +1,8 @@
 import { Component, OnInit ,inject} from '@angular/core';
 import { Blog } from 'src/app/core/model/blog/blog';
 import { HousingService } from 'src/app/core/service/blog.service';
+import { BlogAPIService } from 'src/app/core/api/BlogAPIService'
+import { HandleList } from 'src/app/core/model/common/handleList.model';
 @Component({
   selector: 'app-content-blog',
   templateUrl: './content-blog.component.html',
@@ -8,13 +10,22 @@ import { HousingService } from 'src/app/core/service/blog.service';
 })
 export class ContentBlogComponent implements OnInit {
 
-  housingLocationList: Blog[] = [];
+  listBlog: Blog[] = [];
 
-  constructor(blogService :HousingService ) {
-    this.housingLocationList = blogService.getAllHousingLocations();
+  constructor(blogService :HousingService, private api : BlogAPIService ) {
+ 
   }
 
   ngOnInit() {
+    this.getAllBlogLoading();
+    console.log(this.listBlog )
   }
 
+  public getAllBlogLoading(){
+    this.api.get("/api/Blog").subscribe((i : any)=> {
+      console.log(i);
+      this.listBlog = i;
+
+    });
+  }
 }

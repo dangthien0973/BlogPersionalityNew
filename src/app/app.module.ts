@@ -15,6 +15,7 @@ import { PopularBlogComponent } from './main/blog/popular-blog/popular-blog.comp
 import { AboutMeComponent } from './main/about-me/about-me.component';
 import { FooterComponent } from './footer/footer.component';
 import { DetailBlogComponent } from './main/blog/content-blog/detail-blog/detail-blog.component';
+import { HttpClientModule } from '@angular/common/http'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { DetailBlogComponent } from './main/blog/content-blog/detail-blog/detail
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
     
   ],
   providers: [],

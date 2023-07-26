@@ -1,11 +1,18 @@
-export interface Blog {
-    id: number;
-    name: string;
-    content: string;
-    state: string;
-    photo: string;
-    availableUnits: number;
-    wifi: boolean;
-  }
-  
-  
+export class Blog {
+  blogpostId: number;
+  title: string;
+  content: string;
+  state: string;
+  imageurls: Image[] = [];
+  categoryId: number;
+  wifi: boolean;
+  userid : string ;
+
+
+}
+export class Image {
+  url : string 
+}
+
+
+
