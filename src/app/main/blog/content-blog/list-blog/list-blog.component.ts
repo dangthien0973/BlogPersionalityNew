@@ -7,11 +7,11 @@ import { promise } from 'protractor';
 import { async } from 'rxjs/internal/scheduler/async';
 import { E } from '@angular/core/src/render3';
 @Component({
-  selector: 'app-content-blog',
-  templateUrl: './content-blog.component.html',
-  styleUrls: ['./content-blog.component.css']
+  selector: 'list-content-blog',
+  templateUrl: './list-blog.component.html',
+  styleUrls: []
 })
-export class ContentBlogComponent implements OnInit {
+export class ListBlogComponent implements OnInit {
 
   listBlog: Blog[] = [];
 
