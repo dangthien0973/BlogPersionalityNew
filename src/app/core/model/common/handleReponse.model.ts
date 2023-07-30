@@ -2,8 +2,9 @@
 export class HandleReponse<T> {
 
     total: number;
-    statusCode: string;
+    resultMsg: string;
     isSuccess?:boolean;
     statusCode?:number;
     data: T;
   }
+  

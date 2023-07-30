@@ -7,7 +7,7 @@ import { ContentBlogComponent } from './main/blog/content-blog/content-blog.comp
 import { AboutMeComponent } from './main/about-me/about-me.component';
 import { HousingService } from 'src/app/core/service/blog.service';
 import { BlogComponent } from './main/blog/blog.component';
-import { BlogRouting } from './main/blog/blog-routing.module';
+import { ContentRouting } from './main/blog/content-blog/content-rounting.module';
 import { ListBlogComponent } from './main/blog/content-blog/list-blog/list-blog.component';
 import { DetailListBlogComponentNew } from './main/blog/content-blog/detail-list-blog/detail-list-blog.component';
 const routes: Routes = [
@@ -17,11 +17,10 @@ const routes: Routes = [
     {path:'about-me', component: AboutMeComponent},
     { path: '',         component: BlogComponent },
     { path: 'listblog',         component: ListBlogComponent },
-  //  { path: 'detailListBlog/:id',         component: DetailListBlogComponentNew },
   ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), BlogRouting],
+  imports: [RouterModule.forRoot(routes), ContentRouting],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
