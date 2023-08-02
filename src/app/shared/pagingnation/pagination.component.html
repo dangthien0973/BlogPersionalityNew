@@ -1,17 +1,38 @@
-<!-- <ul *ngIf="pager && pager.pages?.length" class="pagination justify-content-center">
-    <li [ngClass]="{ disabled: pager.currentPage === 1 }" class="page-item">
-        <a (click)="setPage(1)" class="page-link">First</a>
-    </li>
-    <li [ngClass]="{ disabled: pager.currentPage === 1 }" class="page-item">
-        <a (click)="setPage(pager.currentPage - 1)" class="page-link">Previous</a>
-    </li>
-    <li *ngFor="let page of pager.pages" [ngClass]="{ active: pager.currentPage === page }" class="page-item">
-        <a (click)="setPage(page)" class="page-link">{{page}}</a>
-    </li>
-    <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="page-item">
-        <a (click)="setPage(pager.currentPage + 1)" class="page-link">Next</a>
-    </li>
-    <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="page-item">
-        <a (click)="setPage(pager.totalPages)" class="page-link">Last</a>
-    </li>
-</ul> -->
+<nav aria-label="pagination">
+    <ul>
+      <li>
+        <button
+          aria-label="Go To Previous Page"
+          [attr.aria-disabled]="current === 1"
+          [disabled]="current === 1"
+          (click)="onPrevious()"
+        >
+          Previous
+        </button>
+      </li>
+      <li *ngFor="let page of pages;">
+        <a
+          [attr.aria-current]="page === current ? 'page' : null"
+          [attr.aria-label]="
+            page === current ? 'Current Page, Page ' + page : 'Go to Page ' + page
+          "
+          [class.current]="page === current"
+          tabindex="0"
+          (click)="onGoTo(page)"
+          (keyup.enter)="onGoTo(page)"
+          >
+          {{ page }}</a
+          >
+        </li>
+      <li>
+        <button
+          aria-label="Go To Next Page"
+          [attr.aria-disabled]="current === total"
+          [disabled]="current === total"
+          (click)="onNext()"
+        >
+          Next
+        </button>
+      </li>
+    </ul>
+  </nav>

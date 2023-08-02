@@ -1,2 +1,12 @@
 <app-detail-list-blog   *ngFor="let housingLocation of listBlog"
-[housingLocation]="housingLocation"> </app-detail-list-blog>
+[housingLocation]="housingLocation"> 
+
+</app-detail-list-blog>
+
+<pagination 
+[current]="current"
+[total]="total"
+(goTo)="onGoTo($event)"
+(next)="onNext($event)"
+(previous)="onPrevious($event)" > 
+</pagination>

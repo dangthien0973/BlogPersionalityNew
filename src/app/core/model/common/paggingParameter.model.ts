@@ -1,5 +1,5 @@
 export class PaggingParameter{
-    maxPageSize: number;
-    PageNumber: number;
-    _pageSize: number;
+    maxPageSize: number =20;
+    PageNumber: number =1;
+    _pageSize: number =4;
 }

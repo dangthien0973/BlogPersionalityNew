@@ -2,9 +2,9 @@ export class MetaDataclass  {
 
     CurrentPage: number;
     TotalPages: number;
-    TotalCount: number;
+    totalCount: number;
     HasPrevious?:boolean;
-    isSuccess?:boolean;
+    isSuccess:boolean;
     HasNext?:number;
   }
   
