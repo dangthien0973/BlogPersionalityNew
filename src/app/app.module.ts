@@ -20,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContentDetailBlogComponent } from './blog/content-detail-blog/content-detail-blog.component'; 
 import { ListBlogComponent } from './main/blog/content-blog/list-blog/list-blog.component';
 import { DetailListBlogComponentNew } from './main/blog/content-blog/detail-list-blog/detail-list-blog.component';
-import { JwPaginationComponent } from './shared/pagingnation/pagingnation.component';
+import { PaginationComponent } from './shared/pagingnation/pagingnation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +39,8 @@ import { JwPaginationComponent } from './shared/pagingnation/pagingnation.compon
     ContentDetailBlogComponent,
     ListBlogComponent,
     DetailListBlogComponentNew,
-    JwPaginationComponent
+    PaginationComponent
+    
   ],
   imports: [
     BrowserModule,
