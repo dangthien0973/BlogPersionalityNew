@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogAPIService } from 'src/app/core/api/BlogAPIService';
+import { Blog } from 'src/app/core/model/blog/blog';
+import { HandleList } from 'src/app/core/model/common/handleList.model';
 
 @Component({
   selector: 'app-popular-blog',
@@ -6,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./popular-blog.component.css']
 })
 export class PopularBlogComponent implements OnInit {
+  listBlog: Blog[] = [];
 
-  constructor() { }
+  constructor( private api : BlogAPIService ) {
 
-  ngOnInit() {
+  }
+
+    ngOnInit() {
+    this.getAllBlogLoading();
+
+  }
+  public getAllBlogLoading(){
+    this.api.get("/api/Blog").subscribe((i :HandleList<any>)=> {
+      if(i.isSuccess){
+        this.listBlog = i.data;
+      }
+      else {
+        this.listBlog = [];
+      }
+    }
+    );
   }
 
 }

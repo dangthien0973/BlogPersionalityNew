@@ -1,9 +1,6 @@
 import { Component, OnInit ,inject} from '@angular/core';
 import { Blog } from 'src/app/core/model/blog/blog';
-import { HousingService } from 'src/app/core/service/blog.service';
 import { BlogAPIService } from 'src/app/core/api/BlogAPIService'
-import { HandleList } from 'src/app/core/model/common/handleList.model';
-
 import { PagedList } from 'src/app/core/model/common/pagedList.model';
 import { BlogSearch } from 'src/app/core/model/blog/blogSearch';
 @Component({
