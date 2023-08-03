@@ -29,9 +29,12 @@
             "node_modules/font-awesome/css/font-awesome.css",
             "src/styles.css",
             "src/assets/css/owl.theme.default.css",
-            "src/assets/css/owl.carousel.css"
+            "src/assets/css/owl.carousel.css",
+            "node_modules/bootstrap/dist/css/bootstrap.min.css"
+        
             ],
             "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/js/main.js",
               "src/assets/js/jquery.waypoints.min.js",
