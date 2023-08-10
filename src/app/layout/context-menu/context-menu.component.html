@@ -1,60 +1,25 @@
-<!-- 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <button class="navbar-toggler px-0" type="button" data-mdb-toggle="collapse"
-      data-mdb-target="#navbarExampleOnHover" aria-controls="navbarExampleOnHover" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarExampleOnHover">
-      <ul class="navbar-nav me-auto ps-lg-0" style="padding-left: 0.15rem">
-        <li class="nav-item">
-          <div class="list-group list-group-flush">
-            <a  class="nav-link " [routerLink]="'/home'"> Home </a>
-           </div>
-        </li>
-        <li class="nav-item">
-          <div class="list-group list-group-flush">
-            <a  class="nav-link "  [routerLink]="'/blog'"> Topic C# </a>
-           </div>
-        </li>
-        <li class="nav-item">
-          <div class="list-group list-group-flush">
-            <a  class="nav-link "  [routerLink]="'/about-me'"> About me </a>
-           </div>
-        </li>
-        <li class="nav-item">
-          <div class="list-group list-group-flush">
-            <a  class="nav-link "  [routerLink]="'/login-component'"> Login </a>
-           </div>
-        </li>
-      </ul>
-
-    </div>
-  </div>
-</nav> -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light " >
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ">
         <li class="nav-item">
-          <a  class="nav-link "  [routerLink]="'/blog'"> Topic C# </a>
+          <a  class="nav-link "  [routerLink]="'/blog'"> Trang chủ</a>
         </li>
         <li class="nav-item">
-          <a  class="nav-link "  [routerLink]="'/about-me'"> About me </a>
+          <a  class="nav-link "  [routerLink]="'/blog'"> Các chủ đề </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a  class="nav-link "  [routerLink]="'/about-me'"><b></b> Về tôi </a>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Search</button>
+        <input #filter (mouseleave)="Search(filter.value)" class="form-control me-2" type="search" placeholder="Search ..." aria-label="Search">
+        <!-- <button class="btn btn-outline" type="submit">Search</button> -->
       </form>
     </div>
   </div>

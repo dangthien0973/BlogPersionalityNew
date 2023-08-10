@@ -2,13 +2,17 @@ import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from
 
 @Component({ selector: 'pagination', templateUrl: 'pagination.component.html' , styleUrls: ['./pagination.component.css']})
 export class PaginationComponent implements OnChanges {
-    @Input() current: number = 0
-    @Input() total: number = 0
+    @Input() current: number = 1;
+    @Input() total: number = 0;
+    @Input() hasPrevious: boolean = false
+    @Input() hasNext: boolean = false
+    
      pages: number[] = [];
 
     @Output() goTo: EventEmitter<number> = new EventEmitter<number>()
     @Output() next: EventEmitter<number> = new EventEmitter<number>()
     @Output() previous: EventEmitter<number> = new EventEmitter<number>()
+
 
     ngOnChanges(changes: SimpleChanges): void {
         if (
@@ -29,8 +33,14 @@ export class PaginationComponent implements OnChanges {
       }
        getPages(current: number, total: number): number[] {
         const pages = [];
-        for (let i = 1; i <= total/2; i++) {
+      
+        for (let i = 1; i <= total/4; i++) {
           pages.push(i);
+        }
+        if(total/4 > 0)
+        {
+          const maxValue = Math.max(...pages);
+          pages.push(maxValue+1)
         }
         return pages;
       }

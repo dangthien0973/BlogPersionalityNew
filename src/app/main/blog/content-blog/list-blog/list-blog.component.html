@@ -1,13 +1,11 @@
 <app-detail-list-blog   *ngFor="let housingLocation of listBlog"
 [housingLocation]="housingLocation"> 
-<div class="col-md-7 animate-box">
-    <a  [routerLink]="['/blogDetail', housingLocation.blogPostId]" class="fh5co_magna py-2"> {{housingLocation.title}} </a> 
-    <div class="fh5co_consectetur"> {{housingLocation.content}}
-    </div>
-</div>
+
 </app-detail-list-blog>
 
 <pagination 
+[hasPrevious] = "hasPrevious"
+[hasNext] = 'hasNext'
 [current]="current"
 [total]="total"
 (goTo)="onGoTo($event)"

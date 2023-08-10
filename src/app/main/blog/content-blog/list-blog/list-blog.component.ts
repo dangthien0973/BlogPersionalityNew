@@ -1,27 +1,32 @@
-import { Component, OnInit ,inject} from '@angular/core';
+import { Component, Input, OnInit ,inject} from '@angular/core';
 import { Blog } from 'src/app/core/model/blog/blog';
 import { BlogAPIService } from 'src/app/core/api/BlogAPIService'
 import { PagedList } from 'src/app/core/model/common/pagedList.model';
 import { BlogSearch } from 'src/app/core/model/blog/blogSearch';
+import { BlogSearchService } from 'src/app/core/service/blogSearch.service';
 @Component({
   selector: 'list-content-blog',
   templateUrl: './list-blog.component.html',
   styleUrls: []
 })
 export class ListBlogComponent implements OnInit {
-  itemSearch : PagedList<any> = new PagedList<any>();
-  blogSearch : BlogSearch = new BlogSearch();
+  @Input()   blogSearch : BlogSearch  = new BlogSearch();
   listBlog: Blog[] = [];
   current: number = 1;
   total: number;
-
-  constructor( private api : BlogAPIService ) {
-    this.getAllBlogLoading();
+  hasPrevious: boolean = false;
+  hasNext: boolean = false;
+  constructor( private api : BlogAPIService , private serviceBlog : BlogSearchService ) {
+    
+    this.serviceBlog.dataChanged.subscribe(data => {
+      this.blogSearch = data;
+      this.getAllBlogLoading();
+    });
+  
   }
 
     ngOnInit() {
-    this.getAllBlogLoading();
-
+      this.getAllBlogLoading();
   }
  get getParamSearch(){
     const searchOpts: string[] = [
@@ -32,7 +37,7 @@ export class ListBlogComponent implements OnInit {
     if (this.blogSearch.CategoryId) {
       searchOpts.push("CategoryId=" + this.blogSearch.CategoryId);
     }
-    if (this.blogSearch.CategoryId) {
+    if (this.blogSearch.TitleBlog) {
       searchOpts.push("TitleBlog=" + this.blogSearch.TitleBlog);
     }
     return searchOpts.join("&");
@@ -43,7 +48,10 @@ export class ListBlogComponent implements OnInit {
       if(i.metaData.isSuccess){
         this.listBlog = i.items;
         this.total = i.metaData.totalCount;
-        this.current = i.metaData.CurrentPage;
+    //    this.current = i.metaData.CurrentPage;
+        this.hasNext  = i.metaData.HasNext;
+        this.hasPrevious  = i.metaData.HasPrevious;
+
       }
       else {
         this.listBlog = [];
@@ -57,15 +65,16 @@ export class ListBlogComponent implements OnInit {
     this.getAllBlogLoading();
   }
 
-  public onNext(page: number): void {
-    this.current = page +1;
+  public onNext(): void {
+    this.current =this.current + 1 ;
     this.blogSearch.PageNumber  =   this.current;
     this.getAllBlogLoading(); 
   }
 
-  public onPrevious(page: number): void {
-    this.current = page -1;
-    this.blogSearch.PageNumber  =   this.current;
+  public onPrevious(): void {
+    this.current =this.current - 1;
+    alert(this.current)
+    this.blogSearch.PageNumber  = this.current;
     this.getAllBlogLoading();
   }
 

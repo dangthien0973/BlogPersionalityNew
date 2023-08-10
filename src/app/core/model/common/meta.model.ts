@@ -3,8 +3,8 @@ export class MetaDataclass  {
     CurrentPage: number;
     TotalPages: number;
     totalCount: number;
-    HasPrevious?:boolean;
+    HasPrevious:boolean;
     isSuccess:boolean;
-    HasNext?:number;
+    HasNext:boolean;
   }
   
