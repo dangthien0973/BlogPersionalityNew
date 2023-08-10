@@ -1,13 +1,16 @@
 <div>
-  <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
+  <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Bài viết gần đây</div>
 </div>
 
 <div class="row pb-3"  *ngFor="let blog of listBlog">
   <div class="col-5 align-self-center">
     <img [src]="blog.imageUrls[0]" alt="img" class="fh5co_most_trading"/>
   </div>
-  <div class="col-7 paddding">
-      <div class="most_fh5co_treding_font"> {{blog.title}}.</div>
-      <div class="most_fh5co_treding_font_123"> April 18, 2016</div>
+  <div class="col-7 paddding" >
+    <a  class="fh5co_magna py-2" (click)="gotoDetail(blog.blogPostId)" >
+      <div class="most_fh5co_treding_font"> {{blog.title}}</div>
+    
+      <div class="most_fh5co_treding_font_123"> {{blog.createdAt}}  </div>
+    </a>
   </div>
 </div>
