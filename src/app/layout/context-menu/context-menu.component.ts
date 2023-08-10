@@ -13,7 +13,6 @@ export class ContextMenuComponent implements  OnInit {
   
   constructor(private BlogSearchService : BlogSearchService,private router: Router) 
    {
-
    }
 
   ngOnInit() {

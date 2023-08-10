@@ -34,10 +34,13 @@ export class PaginationComponent implements OnChanges {
        getPages(current: number, total: number): number[] {
         const pages = [];
       
+        if(total<4){
+          pages.push(1);
+        }
         for (let i = 1; i <= total/4; i++) {
           pages.push(i);
         }
-        if(total/4 > 0)
+        if(total/4 > 0&& total>4)
         {
           const maxValue = Math.max(...pages);
           pages.push(maxValue+1)

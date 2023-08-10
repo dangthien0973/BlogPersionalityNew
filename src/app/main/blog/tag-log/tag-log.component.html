@@ -3,5 +3,5 @@
 </div>
 <div class="clearfix"></div>
 <div class="fh5co_tags_all"  *ngFor="let menu of listMenu">
-    <a href="#" class="fh5co_tagg">{{menu.name}}</a>
+    <a (click) ="gotoTopicRelated(menu.categoryId)" class="fh5co_tagg">{{menu.name}}</a>
 </div>

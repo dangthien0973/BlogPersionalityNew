@@ -17,8 +17,12 @@ export class DetailBlogComponent implements OnInit {
     private api : BlogAPIService
   ) {}
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
     const id = this.route.snapshot.paramMap.get('id')!;
     this.getDetailBlog(id);
+    });
+
+ 
   }
   public getDetailBlog(id : string ){
      

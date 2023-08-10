@@ -17,7 +17,6 @@ export class ListBlogComponent implements OnInit {
   hasPrevious: boolean = false;
   hasNext: boolean = false;
   constructor( private api : BlogAPIService , private serviceBlog : BlogSearchService ) {
-    
     this.serviceBlog.dataChanged.subscribe(data => {
       this.blogSearch = data;
       this.getAllBlogLoading();
@@ -26,7 +25,7 @@ export class ListBlogComponent implements OnInit {
   }
 
     ngOnInit() {
-      this.getAllBlogLoading();
+     // this.getAllBlogLoading();
   }
  get getParamSearch(){
     const searchOpts: string[] = [
@@ -48,7 +47,6 @@ export class ListBlogComponent implements OnInit {
       if(i.metaData.isSuccess){
         this.listBlog = i.items;
         this.total = i.metaData.totalCount;
-    //    this.current = i.metaData.CurrentPage;
         this.hasNext  = i.metaData.HasNext;
         this.hasPrevious  = i.metaData.HasPrevious;
 
@@ -73,7 +71,6 @@ export class ListBlogComponent implements OnInit {
 
   public onPrevious(): void {
     this.current =this.current - 1;
-    alert(this.current)
     this.blogSearch.PageNumber  = this.current;
     this.getAllBlogLoading();
   }
