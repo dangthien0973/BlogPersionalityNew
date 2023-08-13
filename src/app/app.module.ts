@@ -21,6 +21,9 @@ import { ContentDetailBlogComponent } from './blog/content-detail-blog/content-d
 import { ListBlogComponent } from './main/blog/content-blog/list-blog/list-blog.component';
 import { DetailListBlogComponentNew } from './main/blog/content-blog/detail-list-blog/detail-list-blog.component';
 import { PaginationComponent } from './shared/pagingnation/pagingnation.component';
+import { LoadingComponent } from './shared/loading/loading.component';
+import { AlertComponent } from './shared/alert/alert.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,13 +42,16 @@ import { PaginationComponent } from './shared/pagingnation/pagingnation.componen
     ContentDetailBlogComponent,
     ListBlogComponent,
     DetailListBlogComponentNew,
-    PaginationComponent
+    PaginationComponent,
+    LoadingComponent,
+    AlertComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+ //   ReactiveFormsModule
     
   ],
   providers: [],

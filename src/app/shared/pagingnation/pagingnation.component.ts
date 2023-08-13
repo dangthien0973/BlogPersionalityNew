@@ -6,7 +6,7 @@ export class PaginationComponent implements OnChanges {
     @Input() total: number = 0;
     @Input() hasPrevious: boolean = false
     @Input() hasNext: boolean = false
-    
+    @Input() isLoadingPaging: boolean = false;
      pages: number[] = [];
 
     @Output() goTo: EventEmitter<number> = new EventEmitter<number>()

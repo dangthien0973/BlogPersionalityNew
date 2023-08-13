@@ -1,6 +1,5 @@
 import { Component, Input, OnInit ,inject} from '@angular/core';
 import { Blog } from 'src/app/core/model/blog/blog';
-import { HousingService } from 'src/app/core/service/blog.service';
 import { BlogAPIService } from 'src/app/core/api/BlogAPIService'
 import { HandleList } from 'src/app/core/model/common/handleList.model';
 import { promise } from 'protractor';
@@ -18,9 +17,7 @@ export class ContentBlogComponent implements OnInit {
   constructor( private api : BlogAPIService ) {
 
   }
-
     ngOnInit() {
         this.blogSearch = this.blogSearchParrent;
   }
-  
 }

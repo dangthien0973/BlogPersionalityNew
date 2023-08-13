@@ -1,9 +1,11 @@
-<app-detail-list-blog   *ngFor="let housingLocation of listBlog"
+<app-loading [isLoading]="isLoading"></app-loading>
+<app-detail-list-blog   *ngFor="let housingLocation of listBlog "
 [housingLocation]="housingLocation"> 
 
 </app-detail-list-blog>
 
 <pagination 
+[isLoadingPaging]="isLoadingPaging"
 [hasPrevious] = "hasPrevious"
 [hasNext] = 'hasNext'
 [current]="current"
