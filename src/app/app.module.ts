@@ -23,7 +23,7 @@ import { DetailListBlogComponentNew } from './main/blog/content-blog/detail-list
 import { PaginationComponent } from './shared/pagingnation/pagingnation.component';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { AlertComponent } from './shared/alert/alert.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +51,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
- //   ReactiveFormsModule
+  ReactiveFormsModule,FormsModule
     
   ],
   providers: [],
