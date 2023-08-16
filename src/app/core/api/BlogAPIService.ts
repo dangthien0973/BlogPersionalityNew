@@ -22,12 +22,26 @@ export class BlogAPIService {
 public getUrl(url :any){
 return environment.HOST_URL +url;
 }
+
+
 public get<T=any>(url): Observable<T> {
 	return this.http.get<T>(this.getUrl(url),{ headers: this.hearder }).pipe(
 		delay(10),
 		map((data: T) => (data as T)),
 		catchError(this.handleError)
 	);
+}
+
+public post(url: string , body :any):Observable<any>
+{
+     let _url = this.getUrl(url);
+	 let data = JSON.stringify(body);
+	 return this.http.post(url,data,{  headers: this.hearder }).pipe(
+		delay(10),
+		map((data: any) => (data)),
+		catchError(this.handleError)
+	 )
+
 }
 
 
