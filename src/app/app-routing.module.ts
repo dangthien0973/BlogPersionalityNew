@@ -8,6 +8,7 @@ import { AboutMeComponent } from './main/about-me/about-me.component';
 import { BlogComponent } from './main/blog/blog.component';
 import { ContentRouting } from './main/blog/content-blog/content-rounting.module';
 import { ListBlogComponent } from './main/blog/content-blog/list-blog/list-blog.component';
+import { PostBlogComponent } from './main/internal/post-blog/post-blog.component';
 const routes: Routes = [
     { path: 'login-component', component: LoginComponent  },
     {path:'menu', component: ContextMenuComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
     {path:'about-me', component: AboutMeComponent},
     { path: '',component: BlogComponent },
     { path: 'listblog',component: ListBlogComponent },
+    { path: 'postblog',component: PostBlogComponent }
   ];
 
 @NgModule({

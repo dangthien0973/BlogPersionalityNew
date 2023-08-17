@@ -36,7 +36,7 @@ public post(url: string , body :any):Observable<any>
 {
      let _url = this.getUrl(url);
 	 let data = JSON.stringify(body);
-	 return this.http.post(url,data,{  headers: this.hearder }).pipe(
+	 return this.http.post(this.getUrl(url),data,{  headers: this.hearder }).pipe(
 		delay(10),
 		map((data: any) => (data)),
 		catchError(this.handleError)

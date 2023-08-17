@@ -14,7 +14,7 @@ export class AuthenService {
 
 	}
     login(username: string , password : string ) :Observable<any>{
-		return this.api.post("/Login", {username : username,password : password }).pipe(
+		return this.api.post("/api/Login", {username : username,password : password }).pipe(
 			map(data => {
 				if(data.success){
 				localStorage.setItem(this.userStorage, JSON.stringify(data.data));

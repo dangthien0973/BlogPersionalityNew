@@ -24,6 +24,7 @@ import { PaginationComponent } from './shared/pagingnation/pagingnation.componen
 import { LoadingComponent } from './shared/loading/loading.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PostBlogComponent } from './main/internal/post-blog/post-blog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DetailListBlogComponentNew,
     PaginationComponent,
     LoadingComponent,
-    AlertComponent
+    AlertComponent,
+    PostBlogComponent
     
   ],
   imports: [
