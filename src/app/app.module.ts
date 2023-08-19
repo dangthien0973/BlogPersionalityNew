@@ -25,6 +25,8 @@ import { LoadingComponent } from './shared/loading/loading.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostBlogComponent } from './main/internal/post-blog/post-blog.component';
+import { CKEditorModule } from 'ng2-ckeditor';
+import { CkEditorComponent } from './main/internal/ckeditor/ckeditor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,15 +48,16 @@ import { PostBlogComponent } from './main/internal/post-blog/post-blog.component
     PaginationComponent,
     LoadingComponent,
     AlertComponent,
-    PostBlogComponent
+    PostBlogComponent,
+    
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-  ReactiveFormsModule,FormsModule
-    
+  ReactiveFormsModule,FormsModule,
+  CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
