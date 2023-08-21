@@ -1,12 +1,22 @@
-<ckeditor
-[(ngModel)]="ckeditorContent"
-debounce="500">
-<ckbutton [name]="'saveButton'"
-      [command]="'saveCmd'"
-      (click)="save($event)"
-      [icon]="'save.png'"
-      [label]="'Save Document'"
-      [toolbar]="'clipboard,1'">
-    </ckbutton>
-</ckeditor>
-<button (click)="CheckSave()">Save</button>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-primary mb-3" (click)="AddNew()">Thêm mới</button>
+      <div *ngIf="isCreateNew">
+        <ckeditor 
+          [(ngModel)]="ckeditorContent"
+          debounce="500">
+        </ckeditor>
+        <button class="btn btn-success mt-2" (click)="SaveNewData()">Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-12">
+      <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+    </div>
+  </div>
+</div>

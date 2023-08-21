@@ -27,7 +27,9 @@
     "jquery": "^3.7.0",
     "jw-paginate": "^1.0.4",
     "ng2-ckeditor": "^1.1.9",
+    "ngx-smart-table": "^2.0.3",
     "rxjs": "~6.2.0",
+    "rxjs-compat": "^6.6.7",
     "symbol-observable": "^4.0.0",
     "zone.js": "~0.8.26"
   },

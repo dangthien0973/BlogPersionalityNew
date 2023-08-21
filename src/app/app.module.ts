@@ -26,7 +26,7 @@ import { AlertComponent } from './shared/alert/alert.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostBlogComponent } from './main/internal/post-blog/post-blog.component';
 import { CKEditorModule } from 'ng2-ckeditor';
-import { CkEditorComponent } from './main/internal/ckeditor/ckeditor.component';
+import { Ng2SmartTableModule } from 'ngx-smart-table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,8 +56,10 @@ import { CkEditorComponent } from './main/internal/ckeditor/ckeditor.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-  ReactiveFormsModule,FormsModule,
-  CKEditorModule
+    ReactiveFormsModule,
+    FormsModule,
+    CKEditorModule,
+    Ng2SmartTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
