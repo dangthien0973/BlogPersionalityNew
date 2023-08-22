@@ -6,6 +6,7 @@ import { HandleList } from 'src/app/core/model/common/handleList.model';
 import { BlogSearchService } from 'src/app/core/service/blogSearch.service';
 import { map, delay, catchError,shareReplay } from 'rxjs/operators';
 import { MenuBlog } from 'src/app/core/model/blog/menu-blog';
+import { HandleReponse, ReponseResult } from 'src/app/core/model/common/handleReponse.model';
 @Component({
   selector: 'app-post-blog',
   templateUrl: './post-blog.component.html',
@@ -32,8 +33,8 @@ export class PostBlogComponent implements OnInit {
       title: {
         title: 'Name',
       },
-      content: {
-        title: 'Content',
+      description: {
+        title: 'description',
       },
     }
   };
@@ -68,7 +69,6 @@ export class PostBlogComponent implements OnInit {
     );
   }
   AddNew(){
-   
     if(this.isCreateNew == true){
       this.isCreateNew= false;
     }
@@ -78,19 +78,19 @@ export class PostBlogComponent implements OnInit {
     
   }
   SaveNewData() {
-  console.log(this.blogPost.imageurls)
-		return this.api.post("/api/Blog", this.blogPost).subscribe(
-			map(data => {
-				if(data){
-				console.log(data)
+    this.isLoading = true;
+		return this.api.post("/api/Blog", this.blogPost).subscribe((i: ReponseResult)=>
+    {
+      console.log(i)
+				if(i.success){
+          alert("Thành công!");
 				return {status: true}
 				}
 				else {
+          alert("Thất bại!");
 					return {status :false}
 				}
 
 			})
-		
-		)
 	}
 }

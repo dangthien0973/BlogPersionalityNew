@@ -7,4 +7,8 @@ export class HandleReponse<T> {
     statusCode?:number;
     data: T;
   }
+  export class ReponseResult {
+    message: string;
+    success?:boolean;
+  }
   
