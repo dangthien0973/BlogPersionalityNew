@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./context-header.component.css']
 })
 export class ContextHeaderComponent implements OnInit {
-
-  constructor() { }
+  currentDate = new Date();
 
   ngOnInit() {
   }
