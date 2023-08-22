@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { BlogAPIService } from 'src/app/core/api/BlogAPIService';
 import { Blog } from 'src/app/core/model/blog/blog';
 import { HandleList } from 'src/app/core/model/common/handleList.model';
 import { BlogSearchService } from 'src/app/core/service/blogSearch.service';
-
+import { map, delay, catchError,shareReplay } from 'rxjs/operators';
+import { MenuBlog } from 'src/app/core/model/blog/menu-blog';
 @Component({
   selector: 'app-post-blog',
   templateUrl: './post-blog.component.html',
@@ -14,6 +16,8 @@ export class PostBlogComponent implements OnInit {
   listBlog: Blog[];
   isLoading : boolean = false;
   data :Blog[] = [];
+  blogPost : Blog = new Blog();
+  listMenu : MenuBlog[] = [];
   isCreateNew : boolean = false;
   settings = {
     pager: {
@@ -37,7 +41,19 @@ export class PostBlogComponent implements OnInit {
 
   ngOnInit() {
     this.getAllBlogLoading();
-    this.ckeditorContent = '<p>This is Pavan Kumar Aryasomayajulu</p>';
+    this.GetAllMenu();
+    this.blogPost.content="";
+  }
+  public GetAllMenu(){
+    this.api.get("/api/Blog/GetAllTopic").subscribe((i :HandleList<any>)=> {
+      if(i.isSuccess){
+        this.listMenu = i.data;
+      }
+      else {
+        this.listMenu = [];
+      }
+    }
+    );
   }
   public getAllBlogLoading(){
     this.listBlog = [];
@@ -52,10 +68,29 @@ export class PostBlogComponent implements OnInit {
     );
   }
   AddNew(){
-    this.isCreateNew = true;
+   
+    if(this.isCreateNew == true){
+      this.isCreateNew= false;
+    }
+    else {
+      this.isCreateNew = true;
+    }
+    
   }
-  SaveNewData(){
+  SaveNewData() {
+  console.log(this.blogPost.imageurls)
+		return this.api.post("/api/Blog", this.blogPost).subscribe(
+			map(data => {
+				if(data){
+				console.log(data)
+				return {status: true}
+				}
+				else {
+					return {status :false}
+				}
 
-  }
-
+			})
+		
+		)
+	}
 }

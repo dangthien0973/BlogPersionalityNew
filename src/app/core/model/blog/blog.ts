@@ -3,16 +3,17 @@ export class Blog {
   title: string;
   content: string;
   state: string;
-  imageurls: Image[] = [];
+  imageurls: string;
   categoryId: number;
   wifi: boolean;
   userid : string ;
+  description : string ;
 
 
 }
-export class Image {
-  url : string 
-}
+// export class Image {
+//   url : string 
+// }
 
 
 

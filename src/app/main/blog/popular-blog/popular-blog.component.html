@@ -4,7 +4,7 @@
 
 <div class="row pb-3"  *ngFor="let blog of listBlog">
   <div class="col-5 align-self-center">
-    <img [src]="blog.imageUrls[0]" alt="img" class="fh5co_most_trading"/>
+    <img [src]="blog.imageUrls" alt="img" class="fh5co_most_trading"/>
   </div>
   <div class="col-7 paddding" >
     <a  class="fh5co_magna py-2" (click)="gotoDetail(blog.blogPostId)" >
