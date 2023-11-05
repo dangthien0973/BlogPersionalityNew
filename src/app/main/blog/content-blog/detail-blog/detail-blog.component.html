@@ -1,22 +1,7 @@
-
-<body class="single">
-<div id="fh5co-title-box" style="background-image: url('../assets/image/3239444.webp'); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="page-title">
-        <img [src]="blog?.imageUrls[0]"  alt="Free HTML5 by FreeHTMl5.co">
-        <span>January 1, 2018</span>
-        <h2>   {{blog?.title}}</h2>
-    </div>
-</div>
-
 <div id="fh5co-single-content" class="container-fluid pb-6 pt-6 paddding">
     <div class="container paddding">
         <div class="row mx-0">
-            <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
-                <!-- <p>
-               {{blog?.content}}
-                </p> -->
-
+            <div class="col-md-10 animate-box" data-animate-effect="fadeInLeft">
                 <div class="col-md-8">
                     <h1 class="mb-4"> {{blog?.title}}</h1>
                     <img [src]="blog?.imageUrls" alt="Ảnh đại diện" class="img-fluid mb-3">
@@ -24,17 +9,12 @@
          
                   </div>
             </div>
-            <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
-                <app-tag-log>
-
-                </app-tag-log>
-                <app-popular-blog>
-                    
-                </app-popular-blog>
+            <div class="col-md-2 animate-box" data-animate-effect="fadeInRight">
+                <app-tag-log></app-tag-log>
+                <app-popular-blog></app-popular-blog>
               </div>
            
         </div>
     </div>
  
-</div> 
-</body>
+</div>
